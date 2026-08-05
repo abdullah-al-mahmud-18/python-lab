@@ -10,11 +10,19 @@ parser = argparse.ArgumentParser(
     epilog=epilog
 )
 
-parser.add_argument("what")
+parser.add_argument("person", type=str, default="person", choices=["person"])
+parser.add_argument("-n", "--name", type=str, required=True, help="provide name of person")
+parser.add_argument("-a", "--age", type=int, help="provide age of person")
+parser.add_argument("-p", "--prof", type=str, help="provide profession of person")
 
-arguments = parser.parse_args()
+args = parser.parse_args()
 
-if (arguments == "what"):
-    print("'what' was passed as argument")
+if args.person:
+    print("Person Details:")
+    print(f"Name: {args.name}")
+    if args.age:
+            print(f"Age: {args.age}")
+    if args.prof:
+        print(f"Profession: {args.prof}")
 else:
-    print("'what' was not passed as argument")
+    parser.print_help()
