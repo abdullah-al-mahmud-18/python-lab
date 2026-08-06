@@ -15,14 +15,15 @@ parser.add_argument("-n", "--name", type=str, required=True, help="provide name 
 parser.add_argument("-a", "--age", type=int, help="provide age of person")
 parser.add_argument("-p", "--prof", type=str, help="provide profession of person")
 
-args = parser.parse_args()
+try:
+    args = parser.parse_args()
 
-if args.person:
-    print("Person Details:")
-    print(f"Name: {args.name}")
-    if args.age:
-            print(f"Age: {args.age}")
-    if args.prof:
-        print(f"Profession: {args.prof}")
-else:
+    if args.person:
+        print("Person Details:")
+        print(f"Name: {args.name}")
+        if args.age:
+                print(f"Age: {args.age}")
+        if args.prof:
+            print(f"Profession: {args.prof}")
+except SystemExit as e:
     parser.print_help()
