@@ -10,20 +10,14 @@ parser = argparse.ArgumentParser(
     epilog=epilog
 )
 
-parser.add_argument("person", type=str, default="person", choices=["person"])
-parser.add_argument("-n", "--name", type=str, required=True, help="provide name of person")
-parser.add_argument("-a", "--age", type=int, help="provide age of person")
-parser.add_argument("-p", "--prof", type=str, help="provide profession of person")
+parser.add_argument("letters", type=str, choices=["a", "b", "c"], default="a")
+parser.add_argument("-n", "--number", type=int, required=True, help="This takes a number")
+parser.add_argument("-s", "--str", type=str, help="This takes a string")
 
-try:
-    args = parser.parse_args()
+args = parser.parse_args()
 
-    if args.person:
-        print("Person Details:")
-        print(f"Name: {args.name}")
-        if args.age:
-                print(f"Age: {args.age}")
-        if args.prof:
-            print(f"Profession: {args.prof}")
-except SystemExit as e:
-    parser.print_help()
+parser.print_help()
+print("\n========== ========== ========== ========== ==========\n")
+
+print(f"args: {args}")
+print(f"args.letters: {args.letters}")
