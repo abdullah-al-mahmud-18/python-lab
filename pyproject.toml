@@ -5,10 +5,16 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "scikit-learn>=1.9.1",
     "torch>=2.13.0",
     "torchvision>=0.28.0",
 ]
 
 [[tool.uv.index]]
+name = "pytorch-cu132"
 url = "https://download.pytorch.org/whl/cu132"
-default = true
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu132" }
+torchvision = { index = "pytorch-cu132" }
