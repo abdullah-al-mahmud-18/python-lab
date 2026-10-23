@@ -67,5 +67,17 @@ class NeuralNetwork(nn.Module):
 model = NeuralNetwork().to(device=device)
 print(model)
 
-# TODO:
+loss_fn = nn.CrossEntropyLoss()
+optimizer = torch.optim.SGD(model.parameters(), lr=1e-3)
+
+
+def train(dataloader, model, loss_fn, optimizer):
+    size = len(dataloader.dataset)
+    model.train()
+
+    # for batch, (X, y) in enumerate(dataloader):
+    #     X, y = X.to(device), y.to(device)
+
+
+# TODO
 # https://docs.pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html
