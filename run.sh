@@ -11,5 +11,5 @@ file_path=$(find . -type f -name "$file" -print -quit)
 
 echo "Executing $file_path"
 
-uv run "$file_path" test run
+uv run "$file_path"
 
